@@ -1,7 +1,7 @@
 /*
 by matthew@matthewfl.com
 
-based off the ideas from http://github.com/hafriedlander/jquery.concrete but with the goal to make the same system smalled
+based off the ideas from http://github.com/hafriedlander/jquery.concrete but with the goal to make the same system smaller
 not done at this point
 * need a way to work with events of objects
 */

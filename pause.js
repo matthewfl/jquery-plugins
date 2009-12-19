@@ -1,8 +1,9 @@
 (function ($) {
 	$.fn.pause = function () {
-		return (function (context, list) {
+		return (function (selector, list) {
 			function ret () {
-				for(var a=0;a<list.length;a++) 
+			    var context = $(selector);
+			    for(var a=0;a<list.length;a++) 
 					context = context[list[a][0]].apply(context, list[a][1]);
 				return context;
 			}
@@ -16,6 +17,6 @@
 			}
 			ret.end = ret.pause = ret;
 			return ret;
-		})(this, []);
+		})(this.selector, []);
 	};
 })(jQuery);

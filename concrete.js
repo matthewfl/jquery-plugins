@@ -19,8 +19,7 @@ not done at this point
 	    var arg=arguments;
 	    this._concrete_each(function () {
 		var self=$(this);
-		var supers=[function () {}]; // array of functions for this action
-		if(jQueryFN[name]) supers.push(jQueryFN[name]);
+		var supers=[jQueryFN[name] || function () {}]; // array of functions for this action
 		for(var i=0; i < Events[name].length; ++i) {
 		    if(self._concrete_filter(Events[name][i][0]).length)
 			supers.push(Events[name][i][1]);
@@ -28,7 +27,7 @@ not done at this point
 		self._super = function () {
 		    return supers.pop().apply(self, arg);
 		};
-		self._super()
+		self._super();
 	    });
 	    return this; // this is a problem
 	};
@@ -40,5 +39,6 @@ not done at this point
 		Events[name] = [];
 	    Events[name].push([this.selector, events[name]]);
 	}
+	return this;
     };
 })(jQuery);
